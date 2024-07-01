@@ -31,11 +31,9 @@ pipeline {
         stage('Deploy deployment and service file') {
             steps {
                 script {
-                    withCredentials([file(credentialsId: 'mykubeconfig', variable: 'KUBECONFIG')]) {
-                    sh 'kubectl apply -f deploymentsvc.yaml'
+                    kubectl set image deployment/app-deployment app=chennakeshavrao/hellodocker
                     }
                 }
             }
-        }
     }
 }
