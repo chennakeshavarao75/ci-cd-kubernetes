@@ -15,11 +15,11 @@ spec:
       containers:
       - name: hellodocker-deployment
         image: chennakeshavrao/hellodocker
-      imagePullSecrets:
-        - name: my-secret
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 80
+        imagePullSecrets:
+        - name: my-secret
 
 ---
 apiVersion: v1
