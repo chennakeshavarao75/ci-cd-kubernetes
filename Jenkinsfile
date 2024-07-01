@@ -31,7 +31,7 @@ pipeline {
         stage('Deploy deployment and service file') {
             steps {
                 script {
-                    kubectl set image deployment/app-deployment app=chennakeshavrao/hellodocker
+                    sh 'kubectl set image deployment/app-deployment app=chennakeshavrao/hellodocker'
                     }
                 }
             }
