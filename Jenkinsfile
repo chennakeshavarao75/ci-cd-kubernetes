@@ -31,7 +31,7 @@ pipeline {
         stage('Deploy deployment and service file') {
             steps {
                 script {
-                    sh 'kubectl apply -f deploymentsvc.yaml'
+                    kubernetesDeploy configs: 'deploymentsvc.yaml', kubeconfigId: 'kubernetes_config'
                 }
             }
         }
