@@ -31,6 +31,8 @@ pipeline {
         stage('Deploy deployment and service file') {
             steps {
                 script {
+                    withCredentials([file(credentialsId: 'mykubeconfig', variable: 'KUBECONFIG')]) {
+                    
                     sh 'kubectl set image deployment/app-deployment app=chennakeshavrao/hellodocker'
                     }
                 }
